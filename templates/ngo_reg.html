@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<br><br>
+
+<div class="site-section bg-image overlay-primary" style="background-image: url('{% static 'images/img_1.jpg' %}');">
+  <div class="container">
+    <div class="row align-items-stretch">
+      {% comment %} <div class="col-md-6">
+        <img src="{% static 'images/img_1.jpg' %}" alt="Image"  height="650" width="550">
+      </div> {% endcomment %}
+      <div class="col-md-6">
+        <div class="bg-white h-100 p-4 shadow">
+          <h3 class="mb-4 text-cursive">NGO Registeration</h3>
+          <form action="" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" name='nname' class="form-control" placeholder="NGO Name"required >
+            </div>
+            <div class="form-group">
+              <input type="text" name='oname' class="form-control" placeholder="Founder Name" required >
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" placeholder="Email" required >
+            </div>
+            <div class="form-group">
+              <input type="number" name="phone" class="form-control" placeholder="Contact" required >
+            </div>
+            <div class="form-group">
+              <textarea  name="address" class="form-control w-100"  cols="62" rows="6"  placeholder = 'Address' style="border-0"></textarea>
+            </div>
+              <div class="form-group">
+                <label>Upload Licence</label>
+                <input type="file" name="licence" class="form-control" placeholder="" required >
+              </div>
+              <div class="form-group">
+                <input type="text" name='username' class="form-control" placeholder="Username"required >
+              </div>
+              <div class="form-group">
+                <input type="password" name='password' class="form-control" placeholder="Password" required >
+              </div>
+            <div class="form-group">
+              <input type="submit" value="Register Now" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% comment %} 
+<div class="container" style="align:center">
+
+    <div class="col-md-6">
+        <div class="bg-white h-100 p-4 shadow">
+          <h3 class="mb-4 text-cursive">NGO Registration</h3>
+          <form action="#"  >
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="NGO Name"required >
+            </div>
+            <div class="form-group">
+              <input type="text" name='oname' class="form-control" placeholder="Founder Name" required >
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email" required >
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" placeholder="Contact" required >
+            </div>
+            <div class="form-group">
+              <textarea  name="address" class="form-control w-100"  cols="62" rows="6"  placeholder = 'Address' style="border-0"></textarea>
+            </div>
+              <div class="form-group">
+                <label>Upload Licence</label>
+                <input type="file" name="licence" class="form-control" placeholder="Email" required >
+              </div>
+
+            <div class="form-group">
+              <input type="submit" value="Donate Now" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+        
+    </div>
+   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% endcomment %}
+
+{% endblock %}

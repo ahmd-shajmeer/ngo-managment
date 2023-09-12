@@ -1,0 +1,72 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<br><br>
+
+<div class="site-section bg-image overlay-primary" style="background-image: url('{% static 'images/img_1.jpg' %}');">
+  <div class="container">
+    <div class="row align-items-stretch">
+      {% comment %} <div class="col-md-6">
+        <img src="{% static 'images/img_1.jpg' %}" alt="Image"  height="650" width="550">
+      </div> {% endcomment %}
+      <div class="col-md-6">
+        <div class="bg-white h-100 p-4 shadow">
+          <h3 class="mb-4 text-cursive">Edit Profile</h3>
+          <form action="" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {% for i in fe %}
+            <div class="form-group">
+              <input type="text" name='name' class="form-control" value="{{i.user.first_name}}" placeholder="Name"required >
+            </div>
+            <input type="hidden" name='uid' class="form-control" value="{{i.user_id}}" placeholder="Name"required >
+            <input type="hidden" name='rid' class="form-control" value="{{i.id}}" placeholder="Name"required >
+
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" value="{{i.user.email}}" placeholder="Email" required >
+            </div>
+            <div class="form-group">
+              <input type="number" name="phone"  value="{{i.phone}}" class="form-control" placeholder="Contact" required >
+            </div>
+            <div class="form-group">
+              <textarea  name="address" class="form-control w-100"  cols="62" rows="6"  placeholder = 'Address' style="border-0"></textarea>
+            </div>
+              <div class="form-group">
+                <label>Upload ID proof</label>
+                <input type="file" name="ID" class="form-control" placeholder="" required >
+              </div>
+              <div class="form-group">
+                <label>Upload Photo</label>
+                <input type="file" name="photo" class="form-control" placeholder="" required >
+              </div>
+              <div class="form-group">
+                <input type="text" name='username' value="{{i.user.username}}" class="form-control" placeholder="Username"required >
+              </div>
+              {% comment %} <div class="form-group">
+                <input type="password" name='password' value="{{i.user.password}}"class="form-control" placeholder="Password" required >
+              </div> {% endcomment %}
+            <div class="form-group">
+              <input type="submit" value="Update Now" class="btn btn-primary">
+            </div>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
